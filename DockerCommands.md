@@ -86,6 +86,7 @@ sudo docker run --name nginx --network host --restart always -v $docker_data/ngi
   ```
 
 6. Plex
+
 !!!!!Make sure PUID and PGID match your user IDs!!!!!
 ```
 sudo docker create \
@@ -193,6 +194,7 @@ sudo docker run -v $docker_data/galacticavpn:/etc/openvpn --rm galacticavpn ovpn
 ```
 
 13. Nextcloud
+
 Add stack:
 ```
 version: "2"
@@ -231,6 +233,7 @@ networks:
     driver: bridge
 ```
 Need to remove ssl internally, so go into $docker_data/nextcloud/config/nginx/site-config and edit default. Change 'listen 443 ssl;' to 'listen 443;'
+
 Also add to config.php:
 ```
 'overwrite.cli.url' => 'https://cloud.galactica.host',
@@ -240,6 +243,7 @@ Also add to config.php:
 Import copied files with: ```sudo docker exec nextcloud sudo -u abc php /config/www/nextcloud/occ files:scan --all```
 
 14. Emby (with Lazyman)
+
 Use 'http://freegamez.ga/' to get ip for hosts (at time of writing: 178.62.203.238)
 ```
 sudo docker create \
