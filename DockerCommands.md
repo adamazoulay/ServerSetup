@@ -276,7 +276,7 @@ sudo docker create \
   -v $docker_data/jellyfin:/config \
   -v /tank/media/tvshows:/data/tvshows \
   -v /tank/media/movies:/data/movies \
-  -v /tank/media/transcode:/transcode `#optional` \ 
+  -v /tank/media/transcode:/transcode `#optional` \
   --add-host mf.svc.nhl.com:178.62.203.238 \
   --add-host mlb-ws-mf.media.mlb.com:178.62.203.238 \
   --add-host playback.svcs.mlb.com:178.62.203.238 \
