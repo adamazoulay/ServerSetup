@@ -1,0 +1,3 @@
+mf.svc.nhl.com	178.62.203.238
+mlb-ws-mf.media.mlb.com	178.62.203.238
+playback.svcs.mlb.com	178.62.203.238
