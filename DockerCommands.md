@@ -260,3 +260,26 @@ sudo docker create \
   --restart always \
   linuxserver/emby
 ```
+
+15. Jellyfin (with Lazyman)
+
+Use 'http://freegamez.ga/' to get ip for hosts (at time of writing: 178.62.203.238)
+```
+sudo docker create \
+  --name=jellyfin \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/Toronto \
+  -e UMASK_SET=022 `#optional` \
+  -p 8096:8096 \
+  -p 8920:8920 `#optional` \
+  -v $docker_data/jellyfin:/config \
+  -v /tank/media/tvshows:/data/tvshows \
+  -v /tank/media/movies:/data/movies \
+  -v /tank/media/transcode:/transcode `#optional` \ 
+  --add-host mf.svc.nhl.com:178.62.203.238 \
+  --add-host mlb-ws-mf.media.mlb.com:178.62.203.238 \
+  --add-host playback.svcs.mlb.com:178.62.203.238 \
+  --restart always \
+  linuxserver/jellyfin
+```
