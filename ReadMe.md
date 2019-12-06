@@ -104,22 +104,24 @@ sudo docker create \
 linuxserver/plex
 ```
 
-7. QBittorrent
+7. QBittorrent (Built in VPN)
 ```
-sudo docker create \
-  --name=qbittorrent \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=America/Toronto \
-  -e UMASK_SET=022 \
-  -e WEBUI_PORT=8080 \
-  -p 6881:6881 \
-  -p 6881:6881/udp \
-  -p 8080:8080 \
-  -v $docker_data/qbittorrent/config:/config \
-  -v /tank/downloads:/downloads \
-  --restart always \
-  linuxserver/qbittorrent
+sudo docker run --privileged  -d \
+              --name=qbittorrentvpn \
+              -v $docker_data/qbittorrent/config:/config \
+              -v /tank/downloads:/downloads \
+              -e "VPN_ENABLED=yes" \
+              -e "LAN_NETWORK=192.168.0.0/24" \
+              -e "NAME_SERVERS=8.8.8.8,8.8.4.4" \
+              -e "VPN_USERNAME=un" \
+              -e "VPN_PASSWORD=pw" \
+              -e "PUID=1000" \
+              -e "PGID=1000" \
+              -p 8080:8080 \
+              -p 6881:6881 \
+              -p 6881:6881/udp \
+              --restart always \
+              markusmcnugen/qbittorrentvpn
 ```
 
 8. Sonarr
@@ -182,15 +184,7 @@ sudo docker create \
 
 12. OpenVPN
 ```
-git clone https://github.com/kylemanna/docker-openvpn.git
-cd docker-openvpn/
-sudo docker build -t galacticavpn .
-sudo mkdir $docker_data/galacticavpn
-sudo docker run -v $docker_data/galacticavpn:/etc/openvpn --rm galacticavpn ovpn_genconfig -u udp://vpn.galactica.host:3000
-sudo docker run -v $docker_data/galacticavpn:/etc/openvpn --rm -it galacticavpn ovpn_initpki
-sudo docker run -v $docker_data/galacticavpn:/etc/openvpn --name=galacticavpn --restart always -d -p 3000:1194/udp --cap-add=NET_ADMIN galacticavpn
-sudo docker run -v $docker_data/galacticavpn:/etc/openvpn --rm -it galacticavpn easyrsa build-client-full adam nopass
-sudo docker run -v $docker_data/galacticavpn:/etc/openvpn --rm galacticavpn ovpn_getclient adam > adam.ovpn
+Use the openvpnas esxi image
 ```
 
 13. Nextcloud
