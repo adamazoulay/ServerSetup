@@ -287,34 +287,23 @@ sudo docker create \
 16. LycheeOrg
 
 ```
-version: '2'
-services:
-  lychee:
-    image: kolex/lychee:3.2.16
-    container_name: lychee
-    restart: unless-stopped
-    ports:
-      - 90:80
-    networks:
-      - lychee
-    volumes:
-      - $docker_data/lychee/config:/usr/share/nginx/html/data
-      - /tank/media/photos/lychee/uploads:/usr/share/nginx/html/uploads
-
-  db:
-    image: mariadb
-    container_name: lychee_db
-    restart: unless-stopped
-    networks:
-     - lychee
-    volumes:
-     - $docker_data/lychee/mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: dslfkier324ADSFW24352
-      MYSQL_DATABASE: lychee
-      MYSQL_USER: lychee
-      MYSQL_PASSWORD: sadg186452ASDJYadf247ASD
-
-networks:
-  lychee:
+sudo docker create \
+  --name=lychee \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/Toronto \
+  -p 99:80 \
+  -v /home/programs/lychee:/config \
+  -v /tank/media/pictures/lychee:/pictures \
+  --restart unless-stopped \
+  linuxserver/lychee
+  
+sudo docker create \
+--name=lychee_mysql \
+-p 3306:3306 \
+-e PUID=1000 \
+-e PGID=1000 \
+-e MYSQL_ROOT_PASSWORD=ap234SDFasoeo340asid92e \
+-v /home/programs/lychee/mysql:/config \
+linuxserver/mysql
 ```
