@@ -118,8 +118,8 @@ sudo docker run --privileged  -d \
               -e "PUID=1000" \
               -e "PGID=1000" \
               -p 8080:8080 \
-              -p 6881:6881 \
-              -p 6881:6881/udp \
+              -p 8999:8999 \
+              -p 8999:8999/udp \
               --restart always \
               markusmcnugen/qbittorrentvpn
 ```
