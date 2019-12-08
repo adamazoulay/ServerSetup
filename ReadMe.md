@@ -278,26 +278,17 @@ sudo docker create \
   linuxserver/jellyfin
 ```
 
-16. LycheeOrg
+16. Tatulli
 
 ```
 sudo docker create \
-  --name=lychee \
+  --name=tautulli \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=America/Toronto \
-  -p 99:80 \
-  -v /home/programs/lychee:/config \
-  -v /tank/media/pictures/lychee:/pictures \
+  -p 8181:8181 \
+  -v $docker_data/tatulli/config:/config \
+  -v $docker_data/tatulli/logs:/logs \
   --restart unless-stopped \
-  linuxserver/lychee
-  
-sudo docker create \
---name=lychee_mysql \
--p 3306:3306 \
--e PUID=1000 \
--e PGID=1000 \
--e MYSQL_ROOT_PASSWORD=ap234SDFasoeo340asid92e \
--v /home/programs/lychee/mysql:/config \
-linuxserver/mysql
+  linuxserver/tautulli
 ```
