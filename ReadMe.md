@@ -257,7 +257,7 @@ sudo docker create \
 
 15. Jellyfin (with Lazyman)
 
-Use 'http://freegamez.ga/' to get ip for hosts (at time of writing: 178.62.203.238)
+Use 'http://freegamez.ga/' to get ip for hosts (at time of writing: 165.22.201.101)
 ```
 sudo docker create \
   --name=jellyfin \
@@ -271,9 +271,9 @@ sudo docker create \
   -v /tank/media/tvshows:/data/tvshows \
   -v /tank/media/movies:/data/movies \
   -v /tank/media/transcode:/transcode `#optional` \
-  --add-host mf.svc.nhl.com:178.62.203.238 \
-  --add-host mlb-ws-mf.media.mlb.com:178.62.203.238 \
-  --add-host playback.svcs.mlb.com:178.62.203.238 \
+  --add-host mf.svc.nhl.com:165.22.201.101 \
+  --add-host mlb-ws-mf.media.mlb.com:165.22.201.101 \
+  --add-host playback.svcs.mlb.com:165.22.201.101 \
   --restart always \
   linuxserver/jellyfin
 ```
