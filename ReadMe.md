@@ -293,13 +293,17 @@ sudo docker create \
   linuxserver/tautulli
 ```
 
-17. Filebot
+17. TinyMediaManager
 
+Access webUI at 5800
 ```
-sudo docker run -d \
-    --name=filebot \
-    -p 5800:5800 \
-    -v $docker_data/filebot:/config:rw \
-    -v /tank:/storage:rw \
-    jlesage/filebot
+sudo docker run -d --name=tinymediamanager \
+-v $docker_data/tinymediamanager/config:/config \
+-v /tank:/media \
+-e PUID=1000 \
+-e PGID=1000 \
+-e TZ=America/Toronto \
+-p 5800:5800 \
+-p 5900:5900 \
+romancin/tinymediamanager:latest
 ```
