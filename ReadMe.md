@@ -292,3 +292,14 @@ sudo docker create \
   --restart unless-stopped \
   linuxserver/tautulli
 ```
+
+17. Filebot
+
+```
+sudo docker run -d \
+    --name=filebot \
+    -p 5800:5800 \
+    -v $docker_data/filebot:/config:rw \
+    -v /tank:/storage:rw \
+    jlesage/filebot
+```
