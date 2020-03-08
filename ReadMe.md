@@ -299,11 +299,8 @@ Access webUI at 5800
 ```
 sudo docker run -d --name=tinymediamanager \
 -v $docker_data/tinymediamanager/config:/config \
--v /tank:/media \
--e PUID=1000 \
--e PGID=1000 \
--e TZ=America/Toronto \
+-v /tank/downloads:/media:rw \
+-e GROUP_ID=1000 -e USER_ID=1000 -e TZ=America/Toronto \
 -p 5800:5800 \
--p 5900:5900 \
 romancin/tinymediamanager:latest
 ```
