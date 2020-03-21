@@ -304,3 +304,16 @@ sudo docker run -d --name=tinymediamanager \
 -p 5800:5800 \
 romancin/tinymediamanager:latest
 ```
+
+18. Bionic client
+
+```
+sudo docker run -d \
+  --name boinc \
+  --net=host \
+  --pid=host \
+  -v /opt/appdata/boinc:/var/lib/boinc \
+  -e BOINC_GUI_RPC_PASSWORD="123" \
+  -e BOINC_CMD_LINE_OPTIONS="--allow_remote_gui_rpc" \
+  boinc/client
+```
