@@ -312,7 +312,7 @@ sudo docker run -d \
   --name boinc \
   --net=host \
   --pid=host \
-  -v /opt/appdata/boinc:/var/lib/boinc \
+  -v /tank/boinc:/var/lib/boinc \
   -e BOINC_GUI_RPC_PASSWORD="123" \
   -e BOINC_CMD_LINE_OPTIONS="--allow_remote_gui_rpc" \
   boinc/client
