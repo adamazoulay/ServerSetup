@@ -236,6 +236,8 @@ Also add to config.php:
 ```
 Import copied files with: ```sudo docker exec nextcloud sudo -u abc php /config/www/nextcloud/occ files:scan --all```
 
+Inside cloud.galactica.conf in nginx, add ```client_max_body_size 100M;``` inside server block.
+
 14. Emby (with Lazyman)
 
 Use 'http://freegamez.ga/' to get ip for hosts (at time of writing: 178.62.203.238)
