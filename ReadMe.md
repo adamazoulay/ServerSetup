@@ -1,3 +1,16 @@
+0. ZFS Pool
+Set up a zfs pool (lot's of guides online to do this)
+
+To remove from system:
+```
+zpool export tank
+```
+
+To add to system:
+```
+zpool import tank
+```
+
 1. Docker install:
 ```
 sudo apt-get update
