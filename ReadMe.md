@@ -11,6 +11,11 @@ To add to system:
 zpool import tank
 ```
 
+0.5: NFS export and import
+```
+sudo mount -t nfs 192.168.0.10:/tank /tank
+```
+
 1. Docker install:
 ```
 sudo apt-get update
