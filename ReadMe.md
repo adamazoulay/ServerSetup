@@ -85,7 +85,7 @@ Helpful zpool commands:
 
   !!!!!Make sure PUID and PGID match your user IDs!!!!!
   ```
-  sudo docker run \
+  sudo docker run -d \
   --name=plex \
   --net=host \
   --restart=always \
@@ -128,7 +128,7 @@ Helpful zpool commands:
 
 8. Jackett
 ```
-sudo docker run \
+sudo docker run -d \
   --name=jackett \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -142,7 +142,7 @@ sudo docker run \
 
 9. Sonarr
 ```
-sudo docker create \
+sudo docker run -d \
   --name=sonarr \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -158,7 +158,7 @@ sudo docker create \
 
 10. Sonarr - Anime
 ```
-sudo docker create \
+sudo docker run -d \
   --name=sonarr-anime \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -175,7 +175,7 @@ sudo docker create \
 
 11. Radarr
 ```
-sudo docker create \
+sudo docker run -d \
   --name=radarr \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -191,7 +191,7 @@ sudo docker create \
 
 12. Ombi
 ```
-sudo docker create \
+sudo docker run -d \
   --name=ombi \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -268,7 +268,7 @@ Can use 'rebecca' as un, no password to log in with current config.
 
 Use 'http://freegamez.ga/' to get ip for hosts (at time of writing: 165.22.201.101)
 ```
-sudo docker create \
+sudo docker run -d \
   --name=jellyfin \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -291,7 +291,7 @@ sudo docker create \
 16. Tatulli
 
 ```
-sudo docker create \
+sudo docker run -d \
   --name=tautulli \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -303,6 +303,16 @@ sudo docker create \
   linuxserver/tautulli
 ```
 
+17. Factorio
+```
+sudo docker run -d \
+  -p 34197:34197/udp \
+  -p 27015:27015/tcp \
+  -v $docker_data/factorio:/factorio \
+  --name factorio \
+  --restart=always \
+  factoriotools/factorio
+```
 
 
 
