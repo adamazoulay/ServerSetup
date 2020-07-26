@@ -314,6 +314,19 @@ sudo docker run -d \
   factoriotools/factorio
 ```
 
+18. Minecraft
+```
+sudo docker run -d \
+  -e EULA=TRUE \
+  -p 25565:25565 \
+  -v $docker_data/minecraft:/data \
+  --name mc \
+  -e DIFFICULTY=normal \
+  -e 'MOTD=Get on the crafting and the mining' \
+  -e PVP=false \
+  -e ONLINE_MODE=FALSE \
+  itzg/minecraft-server
+```
 
 
 
