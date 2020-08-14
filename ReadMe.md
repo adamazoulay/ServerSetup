@@ -311,7 +311,7 @@ sudo docker run -d \
   -v $docker_data/factorio:/factorio \
   --name factorio \
   --restart=always \
-  factoriotools/factorio
+  factoriotools/factorio:stable
 ```
 
 18. Minecraft
