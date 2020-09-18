@@ -98,7 +98,7 @@ Helpful zpool commands:
   -v /tank/media/tvshowsanime:/data/tvshowsanime \
   -v /tank/media/movies:/data/movies \
   -v $docker_data/plex/transcode:/transcode \
-  linuxserver/plex
+  linuxserver/plex:public
   ```
   
   Note: Metadata won't work unless you uncheck 'local media' under agents in the plex server settings.
